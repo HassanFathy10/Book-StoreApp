@@ -23,7 +23,7 @@ const Addform = () => {
               required
             ></textarea>
           </div>
-          <button type='submit' className='btn btn-primary'>
+          <button type='submit' className='mt-4 btn btn-primary'>
             Submit
           </button>
         </form>
