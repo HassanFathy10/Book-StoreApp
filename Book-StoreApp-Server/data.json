@@ -1,13 +1,20 @@
 {
-    "books": [
-        {
-            "id": 1, 
-            "title": "Learn React",
-            "description": "Learn React from Scratch"
-        }, 
-        {
-            "id": 2, 
-            "title": "Learn JavaScript",
-            "description": "Learn JavaScript from Scratch"
-        }]
+  "books": [
+    {
+      "id": 1,
+      "title": "Learn React",
+      "description": "Learn React from Scratch"
+    },
+    {
+      "id": 2,
+      "title": "Learn JavaScript",
+      "description": "Learn JavaScript from Scratch"
+    },
+    {
+      "title": "asd",
+      "price": "200",
+      "description": "asd",
+      "id": 3
+    }
+  ]
 }

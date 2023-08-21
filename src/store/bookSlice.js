@@ -20,7 +20,7 @@ export const insertBooks = createAsyncThunk("book/insertBooks",
                 method: "POST",
                 body: JSON.stringify(bookData),
                 headers : {
-                "content-type": "application/json; charset=UTF"
+                "content-type": "application/json; charset=UTF-8"
             }
         });
             const data = await res.json();
