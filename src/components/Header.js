@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <Fragment>
           <nav className='navbar navbar-dark bg-dark'>
-      <span className='navbar-brand mb-0 h1'>My Books</span>
-      <button className='btn btn-outline-primary' type='submit'>
+      <span className='navbar-brand m-2 h1'>My Books</span>
+      <button className='btn btn-outline-primary m-2' type='submit'>
         Log In
       </button>
       </nav>
