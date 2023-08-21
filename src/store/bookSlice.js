@@ -34,7 +34,7 @@ export const insertBooks = createAsyncThunk("book/insertBooks",
 export const deleteBooks = createAsyncThunk("book/deleteBook", async (book, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-        await fetch(`http://localhost:3009/books/${book}`, {
+        await fetch(`http://localhost:3009/books/${book.id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json; charset=UTF-8"

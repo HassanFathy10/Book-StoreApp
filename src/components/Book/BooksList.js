@@ -11,10 +11,10 @@ const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks }) => {
         onClick={() => dispatch(deleteBooks(book))
           .unwrap()
           .then((originalPromiseResult) => {
-            console.log(originalPromiseResult)
+            console.log(originalPromiseResult);
           })
           .catch((rejectedValueOrSerializedError) => {
-            console.log(rejectedValueOrSerializedError)
+            console.log(rejectedValueOrSerializedError);
           })}>
         Delete
       </button>

@@ -1,11 +1,3 @@
 {
-  "books": [
-    {
-      "title": "asdf",
-      "price": "200",
-      "description": "asf",
-      "userName": "Hassan Fathy",
-      "id": 1
-    }
-  ]
+  "books": []
 }
