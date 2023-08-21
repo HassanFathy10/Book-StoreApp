@@ -31,9 +31,24 @@ export const insertBooks = createAsyncThunk("book/insertBooks",
         }
     });
 
+export const deleteBooks = createAsyncThunk("book/deleteBook", async (id, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+        await fetch(`http://localhost:3009/books/${id}`, {
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json; charset=UTF-8"
+            }
+        });
+        return id;
+    } catch {
+        return rejectWithValue(Error.massage);
+    }
+});
+
 const bookSlice = createSlice({
     name: "book",
-    initialState: { books: [], isLoading: false, error : null },
+    initialState: { books: [], isLoading: false, error: null },
     extraReducers: {
         // get books
         [getBooks.pending]: (state, action) => {
@@ -61,7 +76,20 @@ const bookSlice = createSlice({
             state.isLoading = false;
             state.error = action.error.message;
         },
+        //delete books
+        [deleteBooks.pending]: (state, action) => {
+            state.isLoading = true;
+            state.error = null;
+        },
+        [deleteBooks.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.books = state.books.filter(el => el.id !== action.payload)
+        },
+        [deleteBooks.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.error = action.error.message;
+        }
     }
-})
+});
 
 export default bookSlice.reducer;

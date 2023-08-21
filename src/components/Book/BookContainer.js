@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBooks } from "../../store/bookSlice";
+import { getBooks, deleteBooks } from "../../store/bookSlice";
 import BookInfo from './BookInfo';
 import BooksList from './BooksList';
 
@@ -18,7 +18,7 @@ const PostContainer = () => {
       <hr className='my-5' />
       <div className='row'>
         <div className='col'>
-          <BooksList isLoading={ isLoading } books={books} isLoggedIn={isLoggedIn}/>
+          <BooksList isLoading={isLoading} books={books} isLoggedIn={isLoggedIn} dispatch={dispatch} deleteBooks={deleteBooks} />
         </div>
         <div className='col side-line'>
           <BookInfo />
