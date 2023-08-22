@@ -7,7 +7,7 @@ import BooksList from './BooksList';
 import './book.css';
 
 const PostContainer = () => {
-  const [selectedBook, setSelectedBook] = useState(null);
+  const [selectedBook, setSelectedBook] = useState([]);
   const { isLoading, books } = useSelector((state) => state.books);
   const { isLoggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const PostContainer = () => {
     const selectedBook = books.find((book) => book.id === id);
     setSelectedBook((prev) => {
       return { ...prev, ...selectedBook };
-    })
+    });
   };
   return (
     <Fragment>
