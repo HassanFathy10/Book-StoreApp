@@ -7,7 +7,7 @@ import BooksList from './BooksList';
 import './book.css';
 
 const PostContainer = () => {
-  const [selectedBook, setSelectedBook] = useState([]);
+  const [selectedBook, setSelectedBook] = useState(null);
   const { isLoading, books } = useSelector((state) => state.books);
   const { isLoggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
