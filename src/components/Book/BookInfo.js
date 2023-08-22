@@ -16,7 +16,6 @@ const BookInfo = ({ info }) => {
           There is no book selected yet. Please select!
         </div>
       )}
-
     </Fragment>
   );
 };
