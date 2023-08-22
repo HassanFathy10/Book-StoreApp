@@ -9,6 +9,7 @@ const BookInfo = ({ info }) => {
       </div>
       <div>
         <p className='fw-bold'>Title: {info.title}</p>
+        <p className='fw-bold'>Title: {info.userName}</p>
         <p className='fw-light'>Description: {info.description}</p>
         <p className='fst-italic'>Price: {info.price}</p>
       </div>

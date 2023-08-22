@@ -20,7 +20,7 @@ const PostContainer = () => {
     setSelectedBook((prev) => {
       return { ...prev, ...selectedBook };
     })
-  }
+  };
   return (
     <Fragment>
       <hr className='my-5' />
