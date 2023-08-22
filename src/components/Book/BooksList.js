@@ -1,10 +1,10 @@
 import React from 'react';
 
-const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks }) => {
+const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBookId }) => {
   const bookList = books.length > 0 ? books.map((book) => <li key={book.id} className='list-group-item d-flex  justify-content-between align-items-center'>
     <div>{book.title}</div>
     <div className='btn-group' role='group'>
-      <button type='button' className='btn btn-primary'>
+      <button type='button' className='btn btn-primary' onClick={()=> getBookId(book.id)}>
         Read
       </button>
       <button type='button' className='btn btn-danger' disabled={!isLoggedIn}
