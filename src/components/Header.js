@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <Fragment>
           <nav className='navbar navbar-dark bg-dark'>
-      <span className='navbar-brand m-2 h1'>My Books</span>
+        <span className='navbar-brand m-2 h1'>Book Store</span>
       <button className='btn btn-outline-primary m-2' type='submit' onClick={()=> dispatch(logInOut())}>
         {isLoggedIn ? "logout" : "login"}
       </button>
