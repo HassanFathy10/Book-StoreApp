@@ -30,7 +30,7 @@ const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBoo
     </div>
   </li>) : "There's no books in the list" ;
   return (
-    <div>
+    <div style={{height : "100vh"}}>
       <h2 className='mb-4'>Books List</h2>
       {
         isLoading ? (<div className="spinner-border" role="status">
