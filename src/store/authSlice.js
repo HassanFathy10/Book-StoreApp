@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Swal from "sweetalert2";
 
 const authSlice = createSlice({
     name: "auth",
@@ -6,6 +7,12 @@ const authSlice = createSlice({
     reducers: {
         logInOut: (state) => {
             state.isLoggedIn = !state.isLoggedIn;
+            if (state.isLoggedIn) {
+                Swal.fire({
+                    icon: "success",
+                    title: `You logged in successfully`
+                })
+            }
         }
     }
 })

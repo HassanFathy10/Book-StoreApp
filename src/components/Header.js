@@ -1,10 +1,12 @@
 import React, {Fragment} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logInOut } from '../store/authSlice';
+import Swal from 'sweetalert2';
 const Header = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { error } = useSelector((state) => state.books);
+
   return (
     <Fragment>
           <nav className='navbar navbar-dark bg-dark'>
@@ -13,9 +15,12 @@ const Header = () => {
         {isLoggedIn ? "logout" : "login"}
       </button>
       </nav>
-      {error && (<div className="alert alert-danger m-0 justify-content-center d-flex" role="alert">
-        {error}
-      </div>)}
+      {error && (Swal.fire({
+      icon: "error",
+      title: `Server Error: ${error}`
+      }),
+        <div></div>
+      )}
     </Fragment>
   );
 };
