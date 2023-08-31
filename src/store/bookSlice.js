@@ -5,7 +5,7 @@ export const getBooks = createAsyncThunk("books/getBooks",
     async (_, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch("http://localhost:3009/books");
+            const res = await fetch("https://book-store-server-f6ku.onrender.com/books");
             const data = await res.json();
             return data;
         } catch {
@@ -18,7 +18,7 @@ export const insertBooks = createAsyncThunk("book/insertBooks",
         const { rejectWithValue, getState, dispatch } = thunkAPI;
         try {
             bookData.userName = getState().auth.name;
-            const res = await fetch("http://localhost:3009/books", {
+            const res = await fetch("https://book-store-server-f6ku.onrender.com/books", {
                 method: "POST",
                 body: JSON.stringify(bookData),
                 headers : {
@@ -37,7 +37,7 @@ export const insertBooks = createAsyncThunk("book/insertBooks",
 export const deleteBooks = createAsyncThunk("book/deleteBook", async (book, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-        await fetch(`http://localhost:3009/books/${book.id}`, {
+        await fetch(`https://book-store-server-f6ku.onrender.com/books/${book.id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json; charset=UTF-8"
@@ -52,7 +52,7 @@ export const deleteBooks = createAsyncThunk("book/deleteBook", async (book, thun
 export const readBooks = createAsyncThunk("book/readBooks", async (book, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-        await fetch(`http://localhost:3009/books/${book.id}`, {
+        await fetch(`https://book-store-server-f6ku.onrender.com/books/${book.id}`, {
             method: "GET",
             headers: {
                 "content-type": "application/json; charset=UTF-8"
