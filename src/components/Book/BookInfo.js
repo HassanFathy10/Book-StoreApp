@@ -7,7 +7,7 @@ const BookInfo = ({ info }) => {
       {info ? (
         <div>
         <p className='fw-bold text-primary'>Title: <span className='fs-6 fw-medium text-black'>{info.title}</span></p>
-        <p className='fw-bold text-primary'>User name: <span className='fs-6 fw-medium text-black'>{info.userName}</span></p>
+        <p className='fw-bold text-primary'>User Name: <span className='fs-6 fw-medium text-black'>{info.userName}</span></p>
         <p className='fw-bold text-primary'>Description: <span className='fs-6 fw-medium text-black'>{info.description}</span></p>
         <p className='fw-bold text-primary'>Price: <span className='fs-6 fw-medium text-black'>{info.price}</span></p>
       </div>

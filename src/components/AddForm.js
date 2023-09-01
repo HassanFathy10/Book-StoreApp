@@ -25,6 +25,7 @@ const Addform = () => {
       title: `Good job!`
     })
     dispatch(insertBooks(data));
+    console.log(data);
   }
 
   return (

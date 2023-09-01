@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 const authSlice = createSlice({
     name: "auth",
-    initialState: {isLoggedIn: false, name: "Hassan Fathy"},
+    initialState: {isLoggedIn: false},
     reducers: {
         logInOut: (state) => {
             state.isLoggedIn = !state.isLoggedIn;
