@@ -10,7 +10,7 @@ const authSlice = createSlice({
             if (state.isLoggedIn) {
                 Swal.fire({
                     icon: "success",
-                    title: `You logged in successfully`
+                    title: `You logged in Successfully`
                 })
             }
         }
