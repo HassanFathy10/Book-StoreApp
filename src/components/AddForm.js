@@ -8,7 +8,7 @@ const Addform = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
 
   const title = useRef(null);
-  const userName = useRef(null);
+  const name = useRef(null);
   const price = useRef(null);
   const description = useRef(null);
 
@@ -16,7 +16,7 @@ const Addform = () => {
     e.preventDefault();
     const data = {
       title: title.current.value,
-      userName: userName.current.value,
+      name: name.current.value,
       price: price.current.value,
       description: description.current.value
     }
@@ -39,7 +39,7 @@ const Addform = () => {
           </div>
           <div className='form-group'>
             <label htmlFor='userName' className='fw-bold'>User Name</label>
-            <input type='text' className='form-control' id='userName' required ref={userName}/>
+            <input type='text' className='form-control' id='userName' required ref={name}/>
           </div>
           <div className='form-group'>
             <label htmlFor='price' className='fw-bold'>Price</label>
