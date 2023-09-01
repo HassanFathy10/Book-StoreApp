@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <Fragment>
           <nav className='navbar  border-bottom border-body'>
-        <span className='navbar-brand m-2 fs-3 fw-bolder'>Book Store<FontAwesomeIcon icon={faBook} /></span>
+        <span className='navbar-brand m-2 fs-3 fw-bolder'>Book Store <FontAwesomeIcon icon={faBook} /></span>
       <button className='btn btn-outline-primary m-2 fw-bolder' type='submit' onClick={()=> dispatch(logInOut())}>
         {isLoggedIn ? "logout" : "login"}
       </button>
