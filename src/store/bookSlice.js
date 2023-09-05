@@ -13,7 +13,7 @@ export const getBooks = createAsyncThunk("books/getBooks",
         }
     });
 
-export const insertBooks = createAsyncThunk("book/insertBooks",
+export const insertBooks = createAsyncThunk("books/insertBooks",
     async (bookData, thunkAPI) => {
         const { rejectWithValue, getState, dispatch } = thunkAPI;
         try {
@@ -34,7 +34,7 @@ export const insertBooks = createAsyncThunk("book/insertBooks",
         }
     });
 
-export const deleteBooks = createAsyncThunk("book/deleteBook", async (book, thunkAPI) => {
+export const deleteBooks = createAsyncThunk("books/deleteBook", async (book, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
         await fetch(`https://book-store-server-f6ku.onrender.com/books/${book.id}`, {
@@ -49,7 +49,7 @@ export const deleteBooks = createAsyncThunk("book/deleteBook", async (book, thun
     }
 });
 
-export const readBooks = createAsyncThunk("book/readBooks", async (book, thunkAPI) => {
+export const readBooks = createAsyncThunk("books/readBooks", async (book, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
         await fetch(`https://book-store-server-f6ku.onrender.com/books/${book.id}`, {

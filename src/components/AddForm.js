@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef} from 'react';
 import { useSelector ,useDispatch } from 'react-redux';
 import { insertBooks } from '../store/bookSlice';
 import Swal from 'sweetalert2';
+import "./Book/book.css"
+
 
 const Addform = () => {
   const dispatch = useDispatch();
@@ -31,31 +33,32 @@ const Addform = () => {
   return (
     <div className='row'>
       <div className='col-6 offset-3 mt-3'>
-        <h2 className='mb-'>Insert Book</h2>
+        <h2 className='text-light'>Insert Book</h2>
         <form onSubmit={handleSubmit}>
-          <div className='form-group'>
-            <label htmlFor='title' className='fw-bold'>Title</label>
-            <input type='text' className='form-control' id='title' required ref={title}/>
+          <div className='form-group mb-1'>
+            <label htmlFor='title' className='fw-bold mb-1'>Title</label>
+            <input type='text' className='form-control text-light fw-medium' id='title' placeholder='Insert title book' required ref={title}/>
           </div>
-          <div className='form-group'>
-            <label htmlFor='userName' className='fw-bold'>User Name</label>
-            <input type='text' className='form-control' id='userName' required ref={name}/>
+          <div className='form-group mb-1'>
+            <label htmlFor='userName' className='fw-bold mb-1'>User Name</label>
+            <input type='text' className='form-control text-light fw-medium' id='userName' placeholder='Insert username' required ref={name}/>
           </div>
-          <div className='form-group'>
-            <label htmlFor='price' className='fw-bold'>Price</label>
-            <input type='number' className='form-control' id='price' required ref={price}/>
+          <div className='form-group mb-1'>
+            <label htmlFor='price' className='fw-bold mb-1'>Price</label>
+            <input type='number' className='form-control text-light fw-medium' id='price' placeholder='Insert price' required ref={price}/>
           </div>
-          <div className='form-group'>
-            <label htmlFor='Description' className='fw-bold'>Description</label>
+          <div className='form-group mb-1'>
+            <label htmlFor='Description' className='fw-bold bg mb-1'>Description</label>
             <textarea
               ref={description}
-              className='form-control'
+              className='form-control text-light fw-medium'
               id='Description'
-              rows='3'
+              rows='5'
+              placeholder='Write description here...'
               required
             ></textarea>
           </div>
-          <button type='submit' className='mt-4 btn btn-primary' disabled={!isLoggedIn}>
+          <button type='submit' className='mt-3 btn btn-success fw-medium' disabled={!isLoggedIn}>
             Submit
           </button>
         </form>

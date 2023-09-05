@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBooks, deleteBooks } from "../../store/bookSlice";
-import BookInfo from './BookInfo';
-import BooksList from './BooksList';
+import BooksList from "./BooksList"
 
-import './book.css';
+const BookInfo = lazy(() => import('./BookInfo'));
 
 const PostContainer = () => {
   const [selectedBook, setSelectedBook] = useState(null);
@@ -26,10 +25,18 @@ const PostContainer = () => {
       <hr className='my-5' />
       <div className='row'>
         <div className='col'>
+          <Suspense fallback={<div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>}>
           <BooksList isLoading={isLoading} books={books} isLoggedIn={isLoggedIn} dispatch={dispatch} deleteBooks={deleteBooks} getBookId={getBookId}/>
+          </Suspense>
         </div>
         <div className='col side-line'>
-          <BookInfo info={selectedBook} />
+        <Suspense fallback={<div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>}>
+            <BookInfo info={selectedBook} />
+            </Suspense>
         </div>
       </div>
     </Fragment>

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import styles from "./book.css";
 
 const BookInfo = ({ info }) => {
   return (
@@ -6,13 +7,32 @@ const BookInfo = ({ info }) => {
       <h2 className='mb-4'>Book Details</h2>
       {info ? (
         <div>
-        <p className='fw-bold text-primary'>Title: <span className='fs-6 fw-medium text-black'>{info.title}</span></p>
-        <p className='fw-bold text-primary'>User Name: <span className='fs-6 fw-medium text-black'>{info.name}</span></p>
-        <p className='fw-bold text-primary'>Description: <span className='fs-6 fw-medium text-black'>{info.description}</span></p>
-        <p className='fw-bold text-primary'>Price: <span className='fs-6 fw-medium text-black'>{info.price}</span></p>
-      </div>
+          <table className={`table table-dark table-hover ${styles.table}`}>
+            <tbody>
+              <tr>
+                <th scope="row" className='fw-bold text-primary'>Title:</th>
+                <td colspan="4" className='fs-6 fw-medium text-light'>{info.title}</td>
+              </tr>
+              {
+                info.name &&
+                <tr>
+                <th scope="row" className='fw-bold text-primary'>username:</th>
+                <td colSpan="4" className='fs-6 fw-medium text-light'>{info.name}</td>
+              </tr>
+              }
+              <tr>
+                <th scope="row" className='fw-bold text-primary'>Price:</th>
+                <td colspan="4" className='fs-6 fw-medium text-light'>{info.price}</td>
+              </tr>
+              <tr>
+                <th scope="row" className='fw-bold text-primary'>Description:</th>
+                <td colspan="4" className='fs-6 fw-medium text-light'>{info.description}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       ) : (
-        <div className='alert alert-secondary' role='alert'>
+        <div className='alert alert-secondary text-light fw-medium' role='alert'>
           There is no book selected yet. Please select!
         </div>
       )}

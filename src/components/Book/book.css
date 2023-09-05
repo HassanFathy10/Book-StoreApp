@@ -1,11 +1,12 @@
-.side-line::after {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 1px;
-  background: #dfdfdf;
+.table {
+  border: 10px rgb(78, 66, 78) dashed;
 }
-
+.alert {
+  background-color: rgb(98, 129, 129);
+}
+.form-control::placeholder {
+  color: white;
+}
+.form-control{
+  background-color: rgb(98, 129, 129) !important;
+}
