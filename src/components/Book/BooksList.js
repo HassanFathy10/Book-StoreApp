@@ -14,22 +14,32 @@ const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBoo
         Edit
       </button> */}
       <button type='button' className='btn btn-danger' disabled={!isLoggedIn}
-        onClick={() => Swal.fire({
-            icon: "warning",
-            title: `Are you sure to delete this book ${book.title}?`,
-            showCancelButton: true
-        }).then((data) => {
+        onClick={() =>
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((data) => {
             if (data.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your book has been deleted.',
+                'success'
+              )
               dispatch(deleteBooks(book))
-          .unwrap()
-          .then((originalPromiseResult) => {
-            console.log(originalPromiseResult);
-          })
-          .catch((rejectedValueOrSerializedError) => {
-            console.log(rejectedValueOrSerializedError);
-          })
-            }
-        })}>
+                .unwrap()
+                .then((originalPromiseResult) => {
+                  console.log(originalPromiseResult);
+                })
+                .catch((rejectedValueOrSerializedError) => {
+                  console.log(rejectedValueOrSerializedError);
+                })
+            } 
+          })}>
         Delete
       </button>
       </div>

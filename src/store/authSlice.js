@@ -11,7 +11,13 @@ const authSlice = createSlice({
                 Swal.fire({
                     icon: "success",
                     title: `You logged in Successfully`
-                })
+                }) 
+            } else {
+                Swal.fire(
+                    'The Internet?',
+                    'That thing is still around?',
+                    'question'
+                )
             }
         }
     }
