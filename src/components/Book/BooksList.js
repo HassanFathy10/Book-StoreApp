@@ -10,9 +10,9 @@ const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBoo
       <button type='button' className='btn btn-success' onClick={()=> getBookId(book.id)}>
         Read
         </button>
-      {/* <button type='button' className='btn btn-primary' onClick={edit}>
+      <button type='button' className='btn btn-primary'>
         Edit
-      </button> */}
+      </button>
       <button type='button' className='btn btn-danger' disabled={!isLoggedIn}
         onClick={() =>
           Swal.fire({
@@ -53,7 +53,7 @@ const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBoo
           <span className="sr-only">Loading...</span>
         </div>) :
           <div>
-            <table className={`table table-dark table-hover ${styles.table}`}>
+            <table className={`table table-dark ${styles.table}`}>
               <tbody>
                 <tr>
                   <td colSpan="4" className='fs-6 fw-medium text-light'>{bookList}</td>

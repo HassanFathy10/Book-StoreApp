@@ -11,21 +11,6 @@ const authSlice = createSlice({
                 Swal.fire({
                     icon: "success",
                     title: `You logged in Successfully`
-                }) 
-            } else {
-                Swal.fire({
-                    icon: "question",
-                    title : "Are you sure you want to logout?",
-                    confirmButtonText: "Yes"
-                }
-                ).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire(
-                            'Good Luck!',
-                            'See you soon!',
-                            'success'
-                        )
-                    }
                 })
             }
         }

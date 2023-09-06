@@ -15,9 +15,35 @@ const Header = () => {
     <Fragment>
           <nav className='navbar  border-bottom border-body'>
         <span className='navbar-brand m-2 text-light fs-3 fw-bolder'>Book Store <FontAwesomeIcon icon={faBook} /></span>
-      <button className='btn btn-outline-light m-2 fw-bolder' type='submit' onClick={()=> dispatch(logInOut())}>
-        {isLoggedIn ? "logout" : "login"}
-      </button>
+
+        {isLoggedIn ?
+          <button className='btn btn-outline-light m-2 fw-bolder'
+            type='submit'
+            onClick={() => Swal.fire({
+              icon: "question",
+              title: 'Are you sure?',
+              text: "Are you sure you want to logout?"
+            }
+            ).then((result)=>{
+              if (result.isConfirmed) {
+                Swal.fire({
+                  icon: "success",
+                  title: "Good Luck!",
+                  text: "See you soon!"
+                })
+                dispatch(logInOut())
+              }
+            })
+            }>
+            logout
+          </button>
+          :
+          <button className='btn btn-outline-light m-2 fw-bolder'
+            type='submit'
+            onClick={() => dispatch(logInOut())}>
+            login
+          </button>}
+
       </nav>
       {error && (Swal.fire({
       icon: "error",
