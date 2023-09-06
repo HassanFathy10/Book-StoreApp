@@ -64,6 +64,22 @@ export const readBooks = createAsyncThunk("books/readBooks", async (book, thunkA
     }
 });
 
+export const editBooks = createAsyncThunk("books/editBooks", async (book, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI;
+    try {
+        const res = await fetch(`https://book-store-server-f6ku.onrender.com/books/${book.id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json; charset=UTF-8"
+            }
+        });
+        const data = await res.json();
+        return data;
+    } catch {
+        return rejectWithValue(Error.massage);
+    }
+});
+
 const bookSlice = createSlice({
     name: "book",
     initialState: { books: [], isLoading: false, error: null, bookInfo: null },
@@ -111,6 +127,20 @@ const bookSlice = createSlice({
         [readBooks.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.bookInfo = action.payload;
+        },
+        // edit books
+        [editBooks.pending]: (state, action) => {
+            state.isLoading = true;
+            state.error = null;
+        },
+        [editBooks.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.books = action.payload;
+            console.log(action.payload)
+        },
+        [editBooks.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.error = action.error.message;
         },
     }
 });

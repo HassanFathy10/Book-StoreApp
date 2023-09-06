@@ -20,6 +20,7 @@ const PostContainer = () => {
       return { ...prev, ...selectedBook };
     });
   };
+
   return (
     <Fragment>
       <hr className='my-5' />
@@ -28,7 +29,7 @@ const PostContainer = () => {
           <Suspense fallback={<div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>}>
-          <BooksList isLoading={isLoading} books={books} isLoggedIn={isLoggedIn} dispatch={dispatch} deleteBooks={deleteBooks} getBookId={getBookId}/>
+            <BooksList isLoading={isLoading} books={books} isLoggedIn={isLoggedIn} dispatch={dispatch} deleteBooks={deleteBooks} getBookId={getBookId} />
           </Suspense>
         </div>
         <div className='col side-line'>

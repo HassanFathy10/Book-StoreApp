@@ -28,10 +28,10 @@ const Addform = () => {
     })
     dispatch(insertBooks(data));
     console.log(data);
-  }
+  };
 
   return (
-    <div className='row'>
+      <div className='row'>
       <div className='col-6 offset-3 mt-3'>
         <h2 className='text-light'>Insert Book</h2>
         <form onSubmit={handleSubmit}>
