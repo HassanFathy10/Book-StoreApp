@@ -2,7 +2,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import styles from "./book.css";
 
-const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBookId, editBooks }) => {
+const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBookId, editHandler }) => {
 
   const bookList = books.length > 0 ? books.map((book) => <div key={book.id} className='list-group-item d-flex  justify-content-between align-items-center'>
       <div className='mb-4'>{book.title}</div>
@@ -10,7 +10,7 @@ const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBoo
       <button type='button' className='btn btn-success' onClick={()=> getBookId(book.id)}>
         Read
         </button>
-      <button type='button' className='btn btn-primary'>
+      <button type='button' className='btn btn-primary' onClick={()=> editHandler(book.id)}>
         Edit
       </button>
       <button type='button' className='btn btn-danger' disabled={!isLoggedIn}
