@@ -1,10 +1,9 @@
 import React, { Fragment, useEffect, useState, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBooks, deleteBooks } from "../../store/bookSlice";
+import { getBooks, deleteBooks} from "../../store/bookSlice";
 import BooksList from "./BooksList"
 
 const BookInfo = lazy(() => import('./BookInfo'));
-
 const PostContainer = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const { isLoading, books } = useSelector((state) => state.books);
@@ -13,7 +12,7 @@ const PostContainer = () => {
   useEffect(() => {
     dispatch(getBooks());
   }, [dispatch]);
-
+  
   const getBookId = (id) => {
     const selectedBook = books.find((book) => book.id === id);
     setSelectedBook((prev) => {
@@ -29,7 +28,7 @@ const PostContainer = () => {
           <Suspense fallback={<div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>}>
-            <BooksList isLoading={isLoading} books={books} isLoggedIn={isLoggedIn} dispatch={dispatch} deleteBooks={deleteBooks} getBookId={getBookId} />
+            <BooksList isLoading={isLoading} books={books} isLoggedIn={isLoggedIn} dispatch={dispatch} deleteBooks={deleteBooks} getBookId={getBookId}/>
           </Suspense>
         </div>
         <div className='col side-line'>

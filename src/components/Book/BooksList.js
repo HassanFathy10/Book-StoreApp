@@ -2,23 +2,17 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import styles from "./book.css";
 
-
-// const editHandler = (e) => {
-//   e.preventDefault();
-//   dispatch(editBooks({title, name, price, description }))
-// }
-
-
 const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBookId, editBooks }) => {
+
   const bookList = books.length > 0 ? books.map((book) => <div key={book.id} className='list-group-item d-flex  justify-content-between align-items-center'>
       <div className='mb-4'>{book.title}</div>
     <div className='btn-group' role='group'>
       <button type='button' className='btn btn-success' onClick={()=> getBookId(book.id)}>
         Read
         </button>
-        <button type='button' className='btn btn-primary' onClick={()=> editBooks(book)}>
+      {/* <button type='button' className='btn btn-primary' onClick={edit}>
         Edit
-      </button>
+      </button> */}
       <button type='button' className='btn btn-danger' disabled={!isLoggedIn}
         onClick={() => Swal.fire({
             icon: "warning",
