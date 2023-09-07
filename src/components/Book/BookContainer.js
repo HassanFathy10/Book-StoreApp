@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBooks, deleteBooks, editBooks} from "../../store/bookSlice";
+import { getBooks, deleteBooks} from "../../store/bookSlice";
 import BooksList from "./BooksList"
 
 
@@ -12,7 +12,6 @@ const PostContainer = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getBooks());
-    dispatch(editBooks());
   }, [dispatch]);
 
   const getBookId = (id) => {
