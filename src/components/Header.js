@@ -2,7 +2,8 @@ import React, {Fragment} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logInOut } from '../store/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBook} from '@fortawesome/free-solid-svg-icons'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 
@@ -15,7 +16,7 @@ const Header = () => {
     <Fragment>
           <nav className='navbar  border-bottom border-body'>
         <span className='navbar-brand m-2 text-light fs-3 fw-bolder'>Book Store <FontAwesomeIcon icon={faBook} /></span>
-
+        <NavLink className='btn btn-outline-light m-2 fw-bolder ms-auto' to="book/edit">EditPost</NavLink>
         {isLoggedIn ?
           <button className='btn btn-outline-light m-2 fw-bolder'
             type='submit'
@@ -43,7 +44,6 @@ const Header = () => {
             onClick={() => dispatch(logInOut())}>
             login
           </button>}
-
       </nav>
       {error && (Swal.fire({
       icon: "error",

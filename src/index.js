@@ -4,18 +4,31 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Store from './store';
-import App from './App';
+import RootLayout from './pages/RootLayout';
+import EditForm from './pages/EditForm';
+import Addform from './pages/AddForm';
+import ErrorPage from './pages/ErrorPage';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement : <ErrorPage />,
+    children: [
+      { path: "book/edit", element: <EditForm /> },
+      { path: "book/add", element: <Addform /> }
+    ]
+  }
+])
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={Store}>
-      <App />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

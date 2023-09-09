@@ -23,8 +23,7 @@ const PostContainer = () => {
   
   return (
     <Fragment>
-      <hr className='my-5' />
-      <div className='row'>
+      <div className='row mt-5'>
         <div className='col'>
           <Suspense fallback={<div className="spinner-border" role="status">
             <span className="sr-only">Loading...</span>
