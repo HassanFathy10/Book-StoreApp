@@ -14,7 +14,7 @@ export const getBooks = createAsyncThunk("books/getBooks",
     });
 
 export const getBook = createAsyncThunk(
-    "posts/fetchPost",
+    "book/getBook",
     async (id, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
