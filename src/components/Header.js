@@ -4,6 +4,7 @@ import { logInOut } from '../store/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom';
+import { faHand } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 
 
@@ -51,7 +52,9 @@ const Header = () => {
       }),
         <div></div>
       )}
-      
+      <div className='container d-flex justify-content-center p-5'>
+        <p className='fw-bold fs-2 text'>Welcome To Book App Store <span><FontAwesomeIcon icon={faHand} shake style={{color: "#ffff",}} /></span></p>
+      </div>
     </Fragment>
   );
 };
