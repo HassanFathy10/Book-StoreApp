@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement : <ErrorPage />,
     children: [
-      { path: "book/edit", element: <EditForm /> },
+      { path: "book/:id/edit", element: <EditForm /> },
       { path: "book/add", element: <Addform /> }
     ]
   }

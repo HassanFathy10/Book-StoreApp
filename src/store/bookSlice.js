@@ -13,6 +13,19 @@ export const getBooks = createAsyncThunk("books/getBooks",
         }
     });
 
+export const getBook = createAsyncThunk(
+    "posts/fetchPost",
+    async (id, thunkAPI) => {
+        const { rejectWithValue } = thunkAPI;
+        try {
+            const res = await fetch(`https://book-store-server-f6ku.onrender.com/books/${id}`);
+            const data = await res.json();
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
 export const insertBooks = createAsyncThunk("books/insertBooks",
     async (bookData, thunkAPI) => {
         const { rejectWithValue, getState, dispatch } = thunkAPI;
@@ -69,6 +82,7 @@ export const editBooks = createAsyncThunk("books/editBooks", async (book, thunkA
     try {
         const res = await fetch(`https://book-store-server-f6ku.onrender.com/books/${book.id}`, {
             method: "PATCH",
+            body: JSON.stringify(book),
             headers: {
                 "content-type": "application/json; charset=UTF-8"
             }
@@ -87,6 +101,7 @@ const bookSlice = createSlice({
         // get books
         [getBooks.pending]: (state, action) => {
             state.isLoading = true;
+            state.book = null;
             state.error = null;
         },
         [getBooks.fulfilled]: (state, action) => {
@@ -94,6 +109,19 @@ const bookSlice = createSlice({
             state.books = action.payload;
         },
         [getBooks.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.error = action.error.message;
+        },
+        // get book
+        [getBook.pending]: (state, action) => {
+            state.isLoading = true;
+            state.error = null;
+        },
+        [getBook.fulfilled]: (state, action) => {
+            state.isLoading = false;
+            state.books = action.payload;
+        },
+        [getBook.rejected]: (state, action) => {
             state.isLoading = false;
             state.error = action.error.message;
         },
