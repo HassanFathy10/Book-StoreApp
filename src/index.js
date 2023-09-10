@@ -5,9 +5,12 @@ import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Store from './store';
 import RootLayout from './pages/RootLayout';
-import EditForm from './pages/EditForm';
-import Addform from './pages/AddForm';
+import EditBook from './pages/EditBook';
+import AddBook from './pages/AddBook';
 import ErrorPage from './pages/ErrorPage';
+import BookContainer from './components/BookContainer';
+
+
 
 const router = createBrowserRouter([
   {
@@ -15,8 +18,9 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement : <ErrorPage />,
     children: [
-      { path: "book/:id/edit", element: <EditForm /> },
-      { path: "book/add", element: <Addform /> }
+      { path: "book/:id/edit", element: <EditBook /> },
+      { path: "book/add", element: <AddBook /> },
+      { path: "/", element: <BookContainer /> },
     ]
   }
 ])

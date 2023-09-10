@@ -11,7 +11,8 @@ const BooksList = ({ isLoading, books, isLoggedIn, dispatch, deleteBooks, getBoo
       <button type='button' className='btn btn-success' onClick={()=> getBookId(book.id)}>
         Read
         </button>
-      <button type='button' className='btn btn-primary' onClick={()=> Navigate(`book/${book.id}/edit`)}>
+      <button type='button' className='btn btn-primary'
+        onClick={() => Navigate(`book/${book.id}/edit`)}>
         Edit
       </button>
       <button type='button' className='btn btn-danger' disabled={!isLoggedIn}

@@ -4,9 +4,8 @@ import "../components/Book/book.css"
 
 export default function ErrorPage() {
     return (
-        <div style={{height : "100vh"}}>
-            <section className="page_404">
-                <div className="container">
+        <div className='error' style={{height : "100vh", backgroundColor : "white"}}>
+                <div className="container position-relative">
                     <div className="row">
                         <div className="col-sm-12 ">
                             <div className="col-sm-10 col-sm-offset-1  text-center">
@@ -18,13 +17,12 @@ export default function ErrorPage() {
                                         Look like you're lost
                                     </h3>
                                     <p>the page you are looking for not avaible!</p>
-                                    <Link to="/" className="btn">Go to Home</Link>
+                                    <Link to="/" className="btn btn-outline-primary">Go to Home</Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
         </div>
     );
 }

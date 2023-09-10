@@ -37,7 +37,7 @@ const EditForm = () => {
     };
 
     return (
-        <div className='row'>
+        <div className='row' style={{height : "100vh"}}>
             <div className='col-6 offset-3 mt-3'>
                 <h2 className='text-light'>Edit Book</h2>
                 <form onSubmit={handleSubmit}>

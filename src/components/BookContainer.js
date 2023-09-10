@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBooks, deleteBooks} from "../../store/bookSlice";
-import BooksList from "./BooksList"
+import { getBooks, deleteBooks } from "../store/bookSlice";
+import BooksList from "../components/Book/BooksList"
 
 
-const BookInfo = lazy(() => import('./BookInfo'));
-const PostContainer = () => {
+const BookInfo = lazy(() => import('../components/Book/BookInfo'));
+const BookContainer = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const { isLoading, books } = useSelector((state) => state.books);
   const { isLoggedIn } = useSelector((state) => state.auth);
@@ -43,4 +43,4 @@ const PostContainer = () => {
   );
 };
 
-export default PostContainer;
+export default BookContainer;

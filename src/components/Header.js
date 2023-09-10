@@ -15,8 +15,8 @@ const Header = () => {
   return (
     <Fragment>
           <nav className='navbar  border-bottom border-body'>
-        <span className='navbar-brand m-2 text-light fs-3 fw-bolder'>Book Store <FontAwesomeIcon icon={faBook} /></span>
-        <NavLink className='btn btn-outline-light m-2 fw-bolder ms-auto' to="book/edit">EditPost</NavLink>
+        <NavLink className='navbar-brand m-2 text-light fs-3 fw-bolder' to="/">Book Store <FontAwesomeIcon icon={faBook} /></NavLink>
+        <NavLink className='btn btn-outline-light m-2 fw-bolder ms-auto' to="book/add">AddBook</NavLink>
         {isLoggedIn ?
           <button className='btn btn-outline-light m-2 fw-bolder'
             type='submit'
@@ -51,6 +51,7 @@ const Header = () => {
       }),
         <div></div>
       )}
+      
     </Fragment>
   );
 };

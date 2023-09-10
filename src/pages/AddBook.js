@@ -1,12 +1,14 @@
-import React, { useRef} from 'react';
+import React, { useRef } from 'react';
 import { useSelector ,useDispatch } from 'react-redux';
 import { insertBooks } from '../store/bookSlice';
+import { useNavigate } from 'react-router-dom';
 import "../components/Book/book.css"
 import Swal from 'sweetalert2';
 
 
 
 const Addform = () => {
+  const Navigate = useNavigate();
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => state.auth);
 
@@ -27,12 +29,16 @@ const Addform = () => {
       icon: "success",
       title: `Good job!`
     })
-    dispatch(insertBooks(data));
+    dispatch(insertBooks(data))
+      .unwrap()
+      .then(() => {
+        Navigate("/");
+      });
     console.log(data);
   };
 
   return (
-      <div className='row'>
+      <div className='row' style={{height : "100vh"}}>
       <div className='col-6 offset-3 mt-3'>
         <h2 className='text-light'>Insert Book</h2>
         <form onSubmit={handleSubmit}>
