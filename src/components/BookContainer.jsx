@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect, useState, lazy, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBooks, deleteBooks } from "../store/bookSlice";
-import BooksList from "../components/Book/BooksList"
+import BooksList from "./Book/BooksList"
 
 
-const BookInfo = lazy(() => import('../components/Book/BookInfo'));
+const BookInfo = lazy(() => import('./Book/BookInfo'));
 const BookContainer = () => {
   const [selectedBook, setSelectedBook] = useState(null);
   const { isLoading, books } = useSelector((state) => state.books);
