@@ -99,7 +99,7 @@ const bookSlice = createSlice({
     initialState: { books: [], isLoading: false, error: null, bookInfo: null },
     extraReducers: {
         // get books
-        [getBooks.pending]: (state, action) => {
+        [getBooks.pending]: (state) => {
             state.isLoading = true;
             state.book = null;
             state.error = null;
@@ -113,7 +113,7 @@ const bookSlice = createSlice({
             state.error = action.error.message;
         },
         // get book
-        [getBook.pending]: (state, action) => {
+        [getBook.pending]: (state) => {
             state.isLoading = true;
             state.error = null;
         },
@@ -126,7 +126,7 @@ const bookSlice = createSlice({
             state.error = action.error.message;
         },
         //insert books
-        [insertBooks.pending]: (state, action) => {
+        [insertBooks.pending]: (state) => {
             state.isLoading = true;
             state.error = null;
         },
@@ -139,7 +139,7 @@ const bookSlice = createSlice({
             state.error = action.error.message;
         },
         //delete books
-        [deleteBooks.pending]: (state, action) => {
+        [deleteBooks.pending]: (state) => {
             state.isLoading = true;
             state.error = null;
         },
@@ -157,7 +157,7 @@ const bookSlice = createSlice({
             state.bookInfo = action.payload;
         },
         // edit books
-        [editBooks.pending]: (state, action) => {
+        [editBooks.pending]: (state) => {
             state.isLoading = true;
             state.error = null;
         },
