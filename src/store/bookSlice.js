@@ -41,9 +41,9 @@ export const insertBooks = createAsyncThunk("books/insertBooks",
             dispatch(logInsert({name: "InsertBook", status: "success"}))
             const data = await res.json();
             return data;
-        } catch {
+        } catch (error) {
             dispatch(logInsert({name: "InsertBook", status: "failed"}))
-            return rejectWithValue(Error.massage);
+            return rejectWithValue(error.message);
         }
     });
 
@@ -57,7 +57,7 @@ export const deleteBooks = createAsyncThunk("books/deleteBook", async (book, thu
             }
         });
         return book;
-    } catch {
+    } catch (error) {
         return rejectWithValue(Error.massage);
     }
 });
@@ -72,8 +72,8 @@ export const readBooks = createAsyncThunk("books/readBooks", async (book, thunkA
             }
         });
         return book;
-    } catch {
-        return rejectWithValue(Error.massage);
+    } catch (error) {
+        return rejectWithValue(error.message);
     }
 });
 
@@ -89,8 +89,8 @@ export const editBooks = createAsyncThunk("books/editBooks", async (book, thunkA
         });
         const data = await res.json();
         return data;
-    } catch {
-        return rejectWithValue(Error.massage);
+    } catch (error) {
+        return rejectWithValue(error.massage);
     }
 });
 
@@ -98,20 +98,6 @@ const bookSlice = createSlice({
     name: "book",
     initialState: { books: [], isLoading: false, error: null, bookInfo: null },
     extraReducers: {
-        // get books
-        [getBooks.pending]: (state) => {
-            state.isLoading = true;
-            state.book = null;
-            state.error = null;
-        },
-        [getBooks.fulfilled]: (state, action) => {
-            state.isLoading = false;
-            state.books = action.payload;
-        },
-        [getBooks.rejected]: (state, action) => {
-            state.isLoading = false;
-            state.error = action.error.message;
-        },
         // get book
         [getBook.pending]: (state) => {
             state.isLoading = true;
