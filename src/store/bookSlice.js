@@ -9,7 +9,7 @@ export const getBooks = createAsyncThunk("books/getBooks",
             const data = await res.json();
             return data;
         } catch {
-            return rejectWithValue(Error.massage);
+            return rejectWithValue(Error.message);
         }
     });
 
