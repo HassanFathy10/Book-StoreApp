@@ -8,8 +8,8 @@ export const getBooks = createAsyncThunk("books/getBooks",
             const res = await fetch("https://book-store-server-f6ku.onrender.com/books");
             const data = await res.json();
             return data;
-        } catch {
-            return rejectWithValue(Error.message);
+        } catch (error) {
+            return rejectWithValue(error.message);
         }
     });
 
